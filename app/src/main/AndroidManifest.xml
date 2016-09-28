@@ -1,0 +1,48 @@
+
+
+<manifest
+    package="com.perez.udacity.popularmovies"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name="com.perez.udacity.popularmovies.MoviesApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.PopularMovies">
+
+        <activity
+            android:name="com.perez.udacity.popularmovies.ui.activity.BrowseMoviesActivity"
+            android:label="@string/title_browse_movies"
+            android:theme="@style/Theme.PopularMovies.BrowseMovies">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.perez.udacity.popularmovies.ui.activity.MovieDetailsActivity"
+            android:parentActivityName="com.perez.udacity.popularmovies.ui.activity.BrowseMoviesActivity"
+            android:theme="@style/Theme.PopularMovies.MovieDetails" />
+
+        <activity
+            android:name="com.perez.udacity.popularmovies.ui.activity.PreferenceActivity"
+            android:label="@string/title_settings"
+            android:parentActivityName="com.perez.udacity.popularmovies.ui.activity.BrowseMoviesActivity" />
+
+        <provider
+            android:name="com.perez.udacity.popularmovies.data.provider.MoviesProvider"
+            android:authorities="com.perez.udacity.popularmovies.provider"
+            android:exported="false"
+            android:label="@string/app_name" />
+
+        <meta-data
+            android:name="com.perez.udacity.popularmovies.utils.MoviesGlideModule"
+            android:value="GlideModule" />
+
+    </application>
+
+</manifest>
